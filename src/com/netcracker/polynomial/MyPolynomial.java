@@ -74,6 +74,7 @@ public class MyPolynomial {
 
 
     public MyPolynomial multiply(MyPolynomial polynomial2) {
+
         int degreeMult =this.degree + polynomial2.degree;
         MyPolynomial poynomialMult = new MyPolynomial(0, degreeMult);
 

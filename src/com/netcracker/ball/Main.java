@@ -9,18 +9,16 @@ public class Main {
         System.out.println(container);
 
         int i =0;
-        while (i<111) {
+        while (i<10) {
             ball.move();
             if (container.collidesWidth(ball)) {
                 continue;
-            }else if (((ball.getX()+ball.getRadius())+1)<=container.getX()
-                     || ((ball.getX()+ball.getRadius())+1)>=container.getWidth()){
+            }else if (((ball.getX()+ball.getRadius()))<=container.getX()
+                     || ((ball.getX()+ball.getRadius()))>=container.getWidth()){
                 ball.reflectVertical();
-                System.out.println("vvvvvvvvvvvvvvvvvv");
-            }else if  (((ball.getY()+ball.getRadius())+1)>=container.getY()
-                      ||((ball.getX()+ball.getRadius())+1)<=container.getHeight()){
+            }else if  (((ball.getY()+ball.getRadius()))>=container.getY()
+                      ||((ball.getX()+ball.getRadius()))<=container.getHeight()){
                 ball.reflectHorizontal();
-                System.out.println("hhhhhhhhhhhhhhhhhhh");
             }
             System.out.println(ball);
             System.out.println(container);
