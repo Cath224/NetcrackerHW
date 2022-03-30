@@ -30,13 +30,14 @@ public class Container {
     }
 
     public boolean collidesWidth(Ball ball) {
-        float xBall = ball.getX()+ball.getRadius();
-        float yBall = ball.getX()+ball.getRadius();
-        if (xBall > x1 && xBall < x2 && yBall < y1 && yBall > y2) {
-            return true;
-        } else {
-            return false;
-        }
+        float xRightBall = ball.getX()+ball.getRadius();
+        float xLeftBall = ball.getX()-ball.getRadius();
+        float yUpBall = ball.getX()+ball.getRadius();
+        float yDownBall = ball.getX()-ball.getRadius();
+        return  xLeftBall  > x1 &&
+                xRightBall < x2 &&
+                yUpBall    < y1 &&
+                yDownBall  > y2;
     }
 
     @Override
