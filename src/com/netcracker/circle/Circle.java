@@ -1,6 +1,6 @@
 package com.netcracker.circle;
 
-import java.util.Objects;
+
 
 public class Circle {
     private double radius  ;

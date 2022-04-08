@@ -1,7 +1,5 @@
 package com.netcracker.book;
 
-import java.util.Objects;
-import java.util.Scanner;
 
 public class Author {
     private String name;

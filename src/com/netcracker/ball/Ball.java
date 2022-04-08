@@ -1,7 +1,6 @@
 package com.netcracker.ball;
 
-import java.util.Arrays;
-import java.util.Objects;
+
 
 public class Ball {
     private float x;

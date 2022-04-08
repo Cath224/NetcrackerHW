@@ -1,6 +1,5 @@
 package com.netcracker.rectangle;
 
-import java.util.Objects;
 
 public class Rectangle {
     private float length ;

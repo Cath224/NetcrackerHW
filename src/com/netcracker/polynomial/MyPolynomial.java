@@ -1,7 +1,7 @@
 package com.netcracker.polynomial;
 
 import java.util.Arrays;
-import java.util.Objects;
+
 
 public class MyPolynomial {
 
