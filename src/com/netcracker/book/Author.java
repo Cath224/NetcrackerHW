@@ -1,5 +1,6 @@
 package com.netcracker.book;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Author {
@@ -27,5 +28,22 @@ public class Author {
                 ", email='" + email + '\'' +
                 ", gender=" + gender +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Author)) return false;
+        Author author = (Author) obj;
+        return gender == author.gender && name.equals(author.name) && email.equals(author.email);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + name.hashCode();
+        result = 31 * result + email.hashCode();
+        result = 31 * result + (int)gender;
+        return result;
     }
 }

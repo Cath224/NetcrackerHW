@@ -83,4 +83,20 @@ public class MyPoint {
         return Math.sqrt((y2-y1)*(y2-y1) + (x2-x1)*(x2-x1));
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof MyPoint)) return false;
+        MyPoint myPoint = (MyPoint) obj;
+        return x == myPoint.x && y == myPoint.y;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + x;
+        result = 31 * result + y;
+        return result;
+    }
+
 }

@@ -1,5 +1,8 @@
 package com.netcracker.polynomial;
 
+import java.util.Arrays;
+import java.util.Objects;
+
 public class MyPolynomial {
 
     public double[] coeffs;
@@ -86,5 +89,19 @@ public class MyPolynomial {
 
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        MyPolynomial that = (MyPolynomial) obj;
+        return degree == that.degree && Arrays.equals(coeffs, that.coeffs);
+    }
 
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + degree;
+        result = 31 * result + Arrays.hashCode(coeffs);
+        return result;
+    }
 }

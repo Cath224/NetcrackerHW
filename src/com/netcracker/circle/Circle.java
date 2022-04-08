@@ -1,5 +1,7 @@
 package com.netcracker.circle;
 
+import java.util.Objects;
+
 public class Circle {
     private double radius  ;
     private String color  ;
@@ -48,6 +50,20 @@ public class Circle {
                 '}';
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Circle)) return false;
+        Circle circle = (Circle) obj;
+        return Double.compare(circle.radius, radius) == 0 && color.equals(circle.color);
+    }
 
-
+    @Override
+    public int hashCode() {
+        int result = 17;
+        long bitsReal = Double.doubleToLongBits(radius );
+        result = 31 * result + (int)(bitsReal ^ bitsReal >>> 32);
+        result = 31 * result + color.hashCode();
+        return result;
+    }
 }

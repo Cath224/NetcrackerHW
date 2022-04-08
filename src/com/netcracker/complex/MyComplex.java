@@ -1,5 +1,7 @@
 package com.netcracker.complex;
 
+import java.util.Objects;
+
 public class MyComplex {
     private double real ;
     private double imag ;
@@ -103,4 +105,23 @@ public class MyComplex {
     }
 
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof MyComplex)) return false;
+        MyComplex myComplex = (MyComplex) obj;
+        return Double.compare(myComplex.real, real) == 0 && Double.compare(myComplex.imag, imag) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        long bitsReal = Double.doubleToLongBits(real);
+        result = 31 * result + (int)(bitsReal ^ bitsReal >>> 32);
+        long bitsImag = Double.doubleToLongBits(imag);
+        result = 31 * result + (int)(bitsImag ^ bitsImag >>> 32);
+
+        return result;
+
+    }
 }

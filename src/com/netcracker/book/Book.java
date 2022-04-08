@@ -1,6 +1,7 @@
 package com.netcracker.book;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 
 public class Book {
@@ -66,6 +67,24 @@ public class Book {
         return String.join(",", names);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (!(obj instanceof Book)) return false;
+        Book book = (Book) obj;
+        return Double.compare(book.price, price) == 0 &&
+                qty == book.qty && name.equals(book.name) &&
+                Arrays.equals(authors, book.authors);
+    }
 
-
+    @Override
+    public int hashCode() {
+        int result = 17;
+        long bitsReal = Double.doubleToLongBits(price);
+        result = 31 * result + (int)(bitsReal ^ bitsReal >>> 32);
+        result = 31 * result + name.hashCode();
+        result = 31 * result + Arrays.hashCode(authors);
+        result = 31 * result + qty;
+        return result;
+    }
 }
